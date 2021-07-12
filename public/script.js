@@ -1,3 +1,9 @@
+
+//to establish connection between the users
+//users can mute and unmute themselves
+//users can play and pause their videos
+
+
 const socket = io('/')
 const videoGrid = document.getElementById('video-grid')
 const myPeer = new Peer(undefined, {
@@ -22,13 +28,13 @@ navigator.mediaDevices.getUserMedia({
       addVideoStream(video, userVideoStream)
     })
   })
-
+//socket.io enables real time,bidirectional and event based communication.It works on every platform,browser or device.
   socket.on('user-connected', userId => {
     connectToNewUser(userId, stream)
   })
-  // input value
+  //  please enter your input value
   let text = $("input");
-  // when press enter send message
+  // when you want to send the message ,you may press enter send message
   $('html').keydown(function (e) {
     if (e.which == 13 && text.val().length !== 0) {
       socket.emit('message', text.val());
@@ -40,7 +46,7 @@ navigator.mediaDevices.getUserMedia({
     scrollToBottom()
   })
 })
-
+//function connecting or disconnecting  two  users.
 socket.on('user-disconnected', userId => {
   if (peers[userId]) peers[userId].close()
 })
@@ -61,7 +67,7 @@ function connectToNewUser(userId, stream) {
 
   peers[userId] = call
 }
-
+//
 function addVideoStream(video, stream) {
   video.srcObject = stream
   video.addEventListener('loadedmetadata', () => {
@@ -77,7 +83,7 @@ const scrollToBottom = () => {
   d.scrollTop(d.prop("scrollHeight"));
 }
 
-
+//to mute and unmute the audio
 const muteUnmute = () => {
   const enabled = myVideoStream.getAudioTracks()[0].enabled;
   if (enabled) {
@@ -100,7 +106,7 @@ const playStop = () => {
     myVideoStream.getVideoTracks()[0].enabled = true;
   }
 }
-
+//mic button (can be used to switch the mic on or off)
 const setMuteButton = () => {
   const html = `
     <i class="fas fa-microphone"></i>
