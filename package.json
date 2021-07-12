@@ -1,8 +1,8 @@
 {
-  "name": "zoom-clone",
+  "name": "MS TEAMS CLONE",
   "version": "1.0.0",
-  "description": "Credit to [Web Dev Simplified](https://www.youtube.com/watch?v=DvlyzDZDEq4)",
-  "main": "index.js",
+  "description": "a clone app with features",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -19,12 +19,5 @@
     "socket.io": "^2.4.1",
     "uuid": "^8.3.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/CleverProgrammers/nodejs-zoom-clone.git"
-  },
-  "bugs": {
-    "url": "https://github.com/CleverProgrammers/nodejs-zoom-clone/issues"
-  },
-  "homepage": "https://github.com/CleverProgrammers/nodejs-zoom-clone#readme"
+  
 }
